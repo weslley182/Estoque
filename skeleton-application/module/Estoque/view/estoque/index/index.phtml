@@ -1,0 +1,30 @@
+	<table class="table table-striped">
+	    <thead>
+	        <tr>
+	            <th>Nome</th>
+	            <th>Preço</th>
+	            <th>Descrição</th>
+	            <th>Ações</th>
+	        </tr>
+	    </thead>
+	    <tbody>
+	        <?php 
+	            foreach($poProdutos as $oProd) {
+	         ?>
+	             <tr>
+	                <td><?= $oProd->getNome(); ?></td>
+	                <td><?= $oProd->getPreco(); ?></td>
+	                <td><?= $oProd->getDescricao(); ?></td>
+	                <td>
+	                	<a href="<?= $this->url('application', ['action'=>'deletar', 'id'=>$oProd->getId()]); ?>" class="btn btn-danger">Remover</a>
+	                	<a href="<?= $this->url('application', ['action'=>'editar', 'id'=>$oProd->getId()]); ?>" class="btn btn-primary">Editar</a>
+	                </td>
+	            </tr>
+	        <?php 
+	            }
+	         ?>
+	    </tbody>
+	</table>
+	<?php 
+		echo $this->PaginationHelper($poProdutos, $page, '/Produtos', $qtdPorPagina);
+ 	?>

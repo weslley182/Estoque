@@ -1,0 +1,56 @@
+<?php
+    $urlLista = $this->url('application', ['controller' => 'Index','action'=>'Index']);
+    $urlCad = $this->url('application', ['controller' => 'Index','action'=>'Cadastrar']);
+    $urlCont = $this->url('application', ['controller' => 'Index','action'=>'contato']);
+    $urlSair = $this->url('application', ['controller' => 'usuario','action'=>'index']);
+?>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>App de Estoque</title>
+    <!-- Le styles -->
+        <?php 
+            echo $this->headLink()
+            ->prependStylesheet($this->basePath('css/style.css'))
+            ->prependStylesheet($this->basePath('css/bootstrap-theme.min.css'))
+            ->prependStylesheet($this->basePath('css/bootstrap.min.css'));
+        ?>
+
+        <!-- Scripts -->
+        <?php echo $this->headScript()
+            ->prependFile($this->basePath('js/bootstrap.min.js'))
+            ->prependFile($this->basePath('js/jquery.min.js'));
+        ?>
+
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-default">
+
+            <div class="navbar-header">
+				<a href="<?= $urlLista ?>" class="navbar-brand">APP</a>
+			</div>
+        
+
+			<ul class="nav navbar-nav">
+    			<li><a href="<?= $urlLista ?>">Listar produtos</a></li>
+				<li><a href="<?= $urlCad ?>">Cadastrar produtos</a></li>
+                <li><a href="<?= $urlCont ?>">Contato</a></li>
+                <li><a href="<?= $urlSair ?>">Sair</a></li>
+</ul>
+        </nav>
+    </header>
+    <main>
+        <?php
+            $this->flashHelper();
+        ?>
+        <div class="conteudo">
+			<?= $this->content; ?>
+        </div>
+    </main>
+    <footer class="rodape">
+        Todos os direitos reservados.
+    </footer>
+</body>
+</html>

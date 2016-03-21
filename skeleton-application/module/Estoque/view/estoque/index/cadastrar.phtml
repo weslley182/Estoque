@@ -1,0 +1,45 @@
+
+	<h1>Cadastro de Produtos</h1>
+	<?php
+
+	echo $this->form()->openTag($form);
+
+ 	?>
+	<form method="post" action="cadastrar">
+	    <div class="form-group">
+	        <label for="nome">Nome:</label>
+            <?php
+            echo $this->formInput($form->get('nome'));
+            echo $this->formElementErrors()->render($form->get('nome'));
+            ?>
+	    </div>
+	    <div class="form-group">
+	        <label for="preco">Preço:</label>
+	        <?php
+            echo $this->formInput($form->get('preco'));
+            ?>
+	    </div>
+
+		<div class="form­group">
+			<label for="categoria">Categoria:</label>
+			<?php
+			echo $this->formSelect($form->get('categoria'));
+			?>
+		</div>
+
+	    <div class="form-group">
+	        <label for="descricao">Descrição:</label>
+	        <?php
+            echo $this->formInput($form->get('descricao'));
+            ?>
+	    </div>
+		<?php
+			echo $this->formRow($form->get('csrf'));
+		?>
+	    <div class="form-group">
+	        <input type="submit" value="salvar" class="btn btn-primary">
+            <?php
+            echo $this->form()->closeTag();
+            ?>
+	    </div>
+	</form>

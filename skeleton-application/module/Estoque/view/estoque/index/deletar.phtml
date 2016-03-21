@@ -1,0 +1,16 @@
+<?php
+$urlDel = $this->url('application', ['action'=>'deletar']);
+$urlIndex = $this->url('application');
+?>
+
+<h1>Deletar produto</h1>
+<form action="<?= $urlDel ?>" method="post" >
+
+	<input type="hidden" name="id" value="<?= $produto->getId(); ?>" >
+    <p class="alert alert-danger">
+        Você deseja realmente deletar esse Produto? <?= $produto->getNome(); ?>
+    </p>
+    <input type="submit" value="Sim" class="btn btn-danger">
+    <a class="btn btn-primary" href="<?= $urlIndex ?>">Não</a>
+
+</form>
